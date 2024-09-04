@@ -1,16 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import TicketForm from './pages/Home'
-import MyEvents from './pages/Myevents/myEvents'
-import MyTickets from './pages/Mytickets/MyTickets'
+import Navigation from './router/Navigation'
 
 function App() {
 
   return (
     <>
-    {/* <TicketForm /> */}
-    {/* <MyEvents /> */}
-    <MyTickets />
+    <Navigation />
     </>
   )
 }
