@@ -122,7 +122,7 @@ const TicketForm = () => {
           name="imageUrl"
         />
         <TextInput
-          type="datetime-local"
+          type="text"
           placeholder="Date & Time"
           value={formData.dateTime}
           onChange={handleChange}

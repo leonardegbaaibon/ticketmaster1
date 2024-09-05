@@ -35,7 +35,7 @@ const BottomSheet = ({ isOpen, onClose, seats = {}, onTransfer }) => {
         }`}
         onClick={(e) => e.stopPropagation()} // Prevent closing on content click
       >
-        <div className="h-[70vh] flex flex-col justify-between">
+        <div className="h-[70vh] flex flex-col mb-12 justify-between">
           <div>
             <div className="flex justify-between items-center mt-2 text-center text-gray-600 text-lg font-semibold mb-2">
               <span className="text-2xl px-4 text-transparent">x</span>

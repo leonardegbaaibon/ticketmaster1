@@ -24,13 +24,13 @@ const EventCard = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {tickets.map((ticket, index) => {
         // Extract date and time components
-        const date = new Date(ticket.dateTime);
-        const day = date.toLocaleDateString(undefined, { day: "2-digit" });
-        const month = date.toLocaleDateString(undefined, { month: "short" });
-        const time = date.toLocaleTimeString(undefined, {
-          hour: "2-digit",
-          minute: "2-digit",
-        });
+        // const date = new Date(ticket.dateTime);
+        // const day = date.toLocaleDateString(undefined, { day: "2-digit" });
+        // const month = date.toLocaleDateString(undefined, { month: "short" });
+        // const time = date.toLocaleTimeString(undefined, {
+        //   hour: "2-digit",
+        //   minute: "2-digit",
+        // });
 
         return (
           <div
@@ -50,7 +50,7 @@ const EventCard = () => {
                 <div className="flex items-center">
                   <div className="flex flex-col">
                     <div className="flex" style={{fontSize: 13}}>
-                      <p>{`${day} ${month} ${time}`}</p>
+                      <p>{ticket.dateTime}</p>
                       <p className="px-1">.</p>
                       <p>{ticket.venue}</p>
                     </div>
