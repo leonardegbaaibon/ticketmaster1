@@ -22,7 +22,7 @@ const TransferTicketBottomSheet = ({ isOpen, onClose, onManualEntryClick }) => {
         onClick={(e) => e.stopPropagation()} // Prevent closing on content click
       >
         {/* Bottom Sheet Content */}
-        <div className="h-[70vh] pt-2 px-6">
+        <div className="h-[70vh] pt-2 px-6 mb-20">
           <div className="flex justify-between items-center text-lg font-medium">
             <span className="text-transparent">x</span>
             <span className="text-gray-600">TRANSFER TICKET</span>
