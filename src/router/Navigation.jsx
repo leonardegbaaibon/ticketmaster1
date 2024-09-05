@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-// import MyEvents from "../pages/Myevents/myEvents";
+import MyEvents from "../pages/Myevents/myEvents";
 import MyTickets from "../pages/Mytickets/MyTickets";
 import ForYou from "../pages/ForYou";
 import Sell from "../pages/Sell";
@@ -17,11 +17,10 @@ const Navigation = () => {
         {/* Main routes */}
         <Route path="/mytickets" element={<MyTickets />} />
         <Route path="/foryou" element={<ForYou />} />
-        {/* <Route path="/myevents" element={<MyEvents />} /> */}
+        <Route path="/myevents" element={<MyEvents />} />
         <Route path="/sell" element={<Sell />} />
         <Route path="/myaccount" element={<MyAccounts />} />
         <Route path="/home" element={<Home />} />
-        {/* Fallback route for undefined paths */}
         <Route path="*" element={<div>Page not found</div>} />
       </Routes>
       {/* Bottom Navigation */}
