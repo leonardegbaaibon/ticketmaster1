@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import MyEvents from "../pages/Myevents/myEvents.jsx";
-import MyTickets from "../pages/Mytickets/MyTickets.jsx";
-import ForYou from "../pages/ForYou.jsx";
-import Sell from "../pages/Sell.jsx";
-import MyAccounts from "../pages/MyAccounts.jsx";
-import Home from "../pages/Home.jsx";
-import BottomNavigation from "../components/BottomNavigation.jsx";
+import MyEvents from "../pages/Myevents/myEvents";
+import MyTickets from "../pages/Mytickets/MyTickets";
+import ForYou from "../pages/ForYou";
+import Sell from "../pages/Sell";
+import MyAccounts from "../pages/MyAccounts";
+import Home from "../pages/Home";
+import BottomNavigation from "../components/BottomNavigation";
 
 const Navigation = () => {
   return (
