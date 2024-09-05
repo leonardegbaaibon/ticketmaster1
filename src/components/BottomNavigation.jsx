@@ -19,7 +19,7 @@ const BottomNavigation = () => {
       <div className="flex justify-around py-2">
         {/* Discover */}
         <NavLink
-          to="/discover"
+          to="/mytickets"
           className="flex flex-col items-center text-gray-500"
           activeClassName="text-blue-600"
         >

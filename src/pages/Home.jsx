@@ -18,9 +18,55 @@ const TicketForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Split the sit field into an array of seats
+    const seats = formData.sit.split(",").map((seat) => seat.trim());
+
+    // Create a ticket object with the seats array
+    const ticketData = { ...formData, sit: seats };
+
+    // Retrieve existing tickets from localStorage or initialize an empty array
+    let tickets = JSON.parse(localStorage.getItem("tickets")) || [];
+
+    // Add the new ticket object to the tickets array
+    tickets.push(ticketData);
+
+    // Save the updated array back to localStorage
+    localStorage.setItem("tickets", JSON.stringify(tickets));
+
+    // Optionally reset the form
+    setFormData({
+      sec: "",
+      row: "",
+      sit: "",
+      title: "",
+      venue: "",
+      heading: "",
+      midSection: "",
+      imageUrl: "",
+      dateTime: "",
+    });
+  };
+
+  const clearLocalStorage = () => {
+    localStorage.removeItem("tickets");
+    alert("LocalStorage cleared!");
+  };
+
   return (
-    <div className="min-h-screen flex justify-center items-center w-screen bg-white">
-      <form className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <div className="min-h-screen flex flex-col items-center w-screen bg-white">
+      <button
+        onClick={clearLocalStorage}
+        className="bg-red-600 text-white py-2 px-4 rounded mt-4 mb-6"
+      >
+        Clear LocalStorage
+      </button>
+      <form
+        className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md"
+        onSubmit={handleSubmit}
+      >
         <div className="flex justify-between mb-4">
           <TextInput
             placeholder="SEC"

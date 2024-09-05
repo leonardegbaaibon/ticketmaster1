@@ -17,5 +17,13 @@
 }
 
 .custom-radio-button.selected {
-  background-color: #2F7EE4;
+  background-color: #b4b4b4;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
