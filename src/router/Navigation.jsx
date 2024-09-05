@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import MyEvents from "../pages/Myevents/myEvents";
 import MyTickets from "../pages/Mytickets/MyTickets";
 import ForYou from "../pages/ForYou";
 import Sell from "../pages/Sell";
 import MyAccounts from "../pages/MyAccounts";
 import Home from "../pages/Home";
+import MyEvents from "../pages/Myevents/MyEvents";
 import BottomNavigation from "../components/BottomNavigation";
 
 const Navigation = () => {
