@@ -4,7 +4,7 @@ import Vite from './vite.svg'
 const SplashScreen = ({ isLoading, onLoadComplete }) => {
   useEffect(() => {
     if (isLoading) {
-      const timer = setTimeout(() => onLoadComplete(), 3000); // 3 seconds
+      const timer = setTimeout(() => onLoadComplete(), 7000); // 3 seconds
       return () => clearTimeout(timer);
     }
   }, [isLoading, onLoadComplete]);
