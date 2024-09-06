@@ -16,16 +16,9 @@ const Navigation = () => {
         <Routes>
           {/* MyEvents Page */}
           <Route
-            path="/myevents"
+            path="/"
             element={
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}  // Start from the bottom of the screen
-                animate={{ opacity: 1, y: 0 }}    // Animate to the top
-                exit={{ opacity: 0, y: 100 }}     // Exit back to the bottom
-                transition={{ duration: 1.5 }}    // Make the transition slow and obvious
-              >
                 <MyEvents />
-              </motion.div>
             }
           />
           {/* MyTickets Page */}
@@ -47,7 +40,7 @@ const Navigation = () => {
           <Route path="/myevents" element={<MyEvents />} />
           <Route path="/sell" element={<Sell />} />
           <Route path="/myaccount" element={<MyAccounts />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="*" element={<div>Page not found</div>} />
         </Routes>
       </AnimatePresence>

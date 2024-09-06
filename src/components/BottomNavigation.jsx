@@ -69,7 +69,7 @@ const BottomNavigation = () => {
 
         {/* My Events */}
         <NavLink
-          to="/myevents"
+          to="/"
           className="flex flex-col items-center text-gray-500"
           activeClassName="text-blue-600"
         >
@@ -119,7 +119,7 @@ const BottomNavigation = () => {
 
         {/* My Account */}
         <NavLink
-          to="/myaccount"
+          to="/home"
           className="flex flex-col items-center text-gray-500"
           activeClassName="text-blue-500"
         >
