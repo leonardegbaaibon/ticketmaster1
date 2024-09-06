@@ -11,7 +11,7 @@ const SplashScreen = ({ isLoading, onLoadComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center bg-[#024DDF] transition-opacity ${
+      className={`fixed inset-0 flex items-center justify-center bg-[#3175FA] transition-opacity ${
         isLoading ? 'opacity-100' : 'opacity-0 h-0'
       }`}
       style={{ zIndex: 9999, transition: 'opacity 0.5s ease' }}
