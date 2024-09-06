@@ -8,7 +8,7 @@ const TicketCard = ({ ticket }) => {
         <div className="bg-blue-600 flex justify-around rounded-t-lg py-2">
           <span className="text-center">{ticket.heading}</span>
         </div>
-        <div className="bg-blue-500 flex justify-around py-5">
+        <div className="bg-blue-500 flex justify-around py-3"> {/* Reduced padding */}
           <div className="top-2 left-2 text-white">
             <div className="text-xs">SEC</div>
             <div className="text-lg font-bold">{ticket.sec}</div>
@@ -23,7 +23,7 @@ const TicketCard = ({ ticket }) => {
           </div>
         </div>
 
-        <div className="relative w-80 h-64">
+        <div className="relative w-80 h-48"> {/* Reduced height */}
           <img
             src={ticket.imageUrl}
             alt="Event"
@@ -37,8 +37,8 @@ const TicketCard = ({ ticket }) => {
           </div>
         </div>
 
-        <div className="p-4">
-          <div className="flex justify-center items-center my-2">
+        <div className="p-3"> {/* Reduced padding */}
+          <div className="flex justify-center items-center my-1"> {/* Reduced margin */}
             <div className="text-lg text-gray-700 font-medium">{ticket.midSection}</div>
           </div>
           <button className="w-full bg-blue-500 text-white flex justify-center rounded-md py-2">
@@ -48,7 +48,7 @@ const TicketCard = ({ ticket }) => {
           <p className="text-blue-500 text-center mt-2">Ticket Details</p>
         </div>
 
-        <div className="bg-blue-500 rounded-b-lg py-2">
+        <div className="bg-blue-500 rounded-b-lg py-1"> {/* Reduced padding */}
           <i className="text-white text-sm">ticketmaster verified</i>
         </div>
       </div>

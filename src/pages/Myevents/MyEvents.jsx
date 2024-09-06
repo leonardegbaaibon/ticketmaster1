@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import TabNavigator from "./TabNavigator";
 import EventCard from "./EventCard";
 import { AiOutlineClose } from "react-icons/ai";
@@ -7,13 +8,18 @@ const MyEvents = () => {
   const [activeTab, setActiveTab] = useState("upcoming");
 
   return (
-    <div className="flex justify-center">
+    <motion.div 
+      className="flex justify-center"
+      initial={{ opacity: 0, y: 20 }} // Initial state for animation
+      animate={{ opacity: 1, y: 0 }} // End state for animation
+      transition={{ duration: 0.5 }} // Duration of the animation
+    >
       <div className="min-h-screen bg-white w-screen md:w-2/5">
-      <div className="flex justify-between items-center bg-black text-white py-2 px-6">
-        <AiOutlineClose size={24} color="transparent" />
-        <div className="text-lg">My Tickets</div>
-        <div className="text-lg">Help</div>
-      </div>
+        <div className="flex justify-between items-center bg-black text-white py-2 px-6">
+          <AiOutlineClose size={24} color="transparent" />
+          <div className="text-lg">My Tickets</div>
+          <div className="text-lg">Help</div>
+        </div>
         <TabNavigator activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className="p-4">
           {activeTab === "upcoming" && (
@@ -27,7 +33,7 @@ const MyEvents = () => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
