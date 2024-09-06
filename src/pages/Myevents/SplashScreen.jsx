@@ -16,7 +16,7 @@ const SplashScreen = ({ isLoading, onLoadComplete }) => {
       }`}
       style={{ zIndex: 9999, transition: 'opacity 0.5s ease' }}
     >
-      <img src={Vite} alt="Ticket Icon" width={150} height={150} style={{marginBottom:250}}/>
+      <img src={Vite} alt="Ticket Icon" width={150} height={150} style={{marginBottom:180}}/>
     </div>
   );
 };
