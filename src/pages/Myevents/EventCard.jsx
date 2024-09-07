@@ -40,7 +40,7 @@ const EventCard = ({ setSelectedEvent, setActiveComponent }) => {
                 <div className="flex flex-col">
                   <div className="flex" style={{ fontSize: 13 }}>
                     <p>{ticket.dateTime}</p>
-                    <p className="px-1">.</p>
+                    <p className="px-1">•</p>
                     <p>{ticket.venue}</p>
                   </div>
                   <div className="flex justify-start items-center">
