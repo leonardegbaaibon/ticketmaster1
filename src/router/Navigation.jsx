@@ -1,51 +1,43 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import MyTickets from "../pages/Mytickets/MyTickets";
 import ForYou from "../pages/ForYou";
 import Sell from "../pages/Sell";
 import MyAccounts from "../pages/MyAccounts";
-import Home from "../pages/Home";
 import MyEvents from "../pages/Myevents/MyEvents";
 import BottomNavigation from "../components/BottomNavigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import TicketForm from "../pages/TicketForm";
 
 const Navigation = () => {
+  const [activeComponent, setActiveComponent] = useState("MyEvents");
+  const [selectedEvent, setSelectedEvent] = useState(null); // State for selected event
+
+  console.log(selectedEvent,activeComponent)
+
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case "MyEvents":
+        return <MyEvents setSelectedEvent={setSelectedEvent} setActiveComponent={setActiveComponent} />;
+      case "MyTickets":
+        return <MyTickets selectedEvent={selectedEvent} />; // Pass the selected event
+      case "ForYou":
+        return <ForYou />;
+      case "Sell":
+        return <Sell />;
+      case "MyAccounts":
+        return <TicketForm />;
+      default:
+        return <div>Page not found</div>;
+    }
+  };
+
   return (
     <div className="pb-16">
-      <AnimatePresence>
-        <Routes>
-          {/* MyEvents Page */}
-          <Route
-            path="/"
-            element={
-                <MyEvents />
-            }
-          />
-          {/* MyTickets Page */}
-          <Route
-            path="/mytickets"
-            element={
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}  // Start from the bottom of the screen
-                animate={{ opacity: 1, y: 0 }}    // Animate to the top
-                exit={{ opacity: 0, y: 100 }}     // Exit back to the bottom
-                transition={{ duration: 1.5 }}    // Make the transition slow and obvious
-              >
-                <MyTickets />
-              </motion.div>
-            }
-          />
-          {/* Other routes */}
-          <Route path="/foryou" element={<ForYou />} />
-          <Route path="/myevents" element={<MyEvents />} />
-          <Route path="/sell" element={<Sell />} />
-          <Route path="/myaccount" element={<MyAccounts />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="*" element={<div>Page not found</div>} />
-        </Routes>
-      </AnimatePresence>
-      {/* Bottom Navigation */}
-      <BottomNavigation />
+      <AnimatePresence>{renderComponent()}</AnimatePresence>
+      <BottomNavigation
+        setActiveComponent={setActiveComponent}
+        activeComponent={activeComponent}
+      />
     </div>
   );
 };

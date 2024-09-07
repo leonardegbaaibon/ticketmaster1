@@ -4,20 +4,13 @@ import Ticket from '../../assets/ticket2.svg';
 import { MdOutlineCheck } from 'react-icons/md';
 import { PiWarningCircleFill } from 'react-icons/pi';
 
-const BottomSheet = ({ isOpen, onClose, seats = {}, onTransfer }) => {
-  // State to track selected seats
+const BottomSheet = ({ isOpen, onClose, seats = [], onTransfer }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
-  // Extract section, row, and sit array from seats object
-  const { sec, row, sit } = seats;
-
-  // Function to handle seat selection
   const handleSeatSelect = (seatId) => {
     if (selectedSeats.includes(seatId)) {
-      // If the seat is already selected, deselect it
       setSelectedSeats(selectedSeats.filter((id) => id !== seatId));
     } else {
-      // Otherwise, add the seat to the selected seats
       setSelectedSeats([...selectedSeats, seatId]);
     }
   };
@@ -33,7 +26,7 @@ const BottomSheet = ({ isOpen, onClose, seats = {}, onTransfer }) => {
         className={`fixed bottom-0 left-0 right-0 bg-white transition-transform ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
-        onClick={(e) => e.stopPropagation()} // Prevent closing on content click
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="h-[70vh] flex flex-col mb-12 justify-between">
           <div>
@@ -58,30 +51,29 @@ const BottomSheet = ({ isOpen, onClose, seats = {}, onTransfer }) => {
 
             <div className="flex justify-between items-center m-4 mb-4">
               <div className="text-sm font-medium text-gray-600">
-                Sec {sec}, Row {row}
+                {seats.length} Tickets
               </div>
               <div className="text-sm font-medium text-gray-600 flex pr-2">
                 <img src={Ticket} alt="Ticket Icon" />
-                <span>{sit.length} Tickets</span>
               </div>
             </div>
 
             <div className="flex flex-wrap justify-start">
-              {sit.map((seat, index) => (
+              {seats.map((seatId, index) => (
                 <div key={index} className="text-center ml-4 mb-4 rounded-lg shadow-xl">
                   <div
-                    onClick={() => handleSeatSelect(seat)}
+                    onClick={() => handleSeatSelect(seatId)}
                     className={`cursor-pointer py-2 px-4 flex items-center justify-center space-x-2 ${
-                      selectedSeats.includes(seat)
+                      selectedSeats.includes(seatId)
                         ? 'bg-blue-500 border-blue-600 text-white'
                         : 'bg-blue-500 border-blue-500 text-white'
                     }`}
                   >
-                    <span>SEAT {seat}</span>
+                    <span>SEAT {seatId}</span>
                   </div>
                   <span
                     className={`custom-radio-button my-2 px-1 py-1 ${
-                      selectedSeats.includes(seat) ? 'bg-blue-500' : ''
+                      selectedSeats.includes(seatId) ? 'bg-blue-500' : ''
                     }`}
                   >
                     <b className="text-white" style={{ fontSize: '13px' }}>
@@ -99,7 +91,7 @@ const BottomSheet = ({ isOpen, onClose, seats = {}, onTransfer }) => {
             </div>
             <button
               className={`rounded-md text-sm font-bold py-2 px-4 bg-gray-200 text-gray-500`}
-              onClick={() => onTransfer(selectedSeats, sec, row)} // Pass selected seats, sec, and row to handler
+              onClick={() => onTransfer(selectedSeats)} // Pass selected seats to handler
               disabled={selectedSeats.length === 0}
             >
               TRANSFER TO {'>'}

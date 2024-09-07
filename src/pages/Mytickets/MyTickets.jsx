@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion'; // Import Framer Motion
 import HorizontalScroll from './HorizontalScroll';
 import BottomSheet from './BottomSheet';
@@ -7,9 +6,7 @@ import TransferTicketBottomSheet from './TransferTicketBottomSheet';
 import TransferTicketFormBottomSheet from './TransferTicketFormBottomSheet';
 import { AiOutlineClose } from 'react-icons/ai';
 
-const MyTickets = () => {
-  const { state } = useLocation();
-  const { selectedEvent } = state || {};
+const MyTickets = ({ selectedEvent }) => {
   const [isBottomSheetOpen, setBottomSheetOpen] = useState(false);
   const [isTransferSheetOpen, setTransferSheetOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -25,7 +22,9 @@ const MyTickets = () => {
     setTransferSheetOpen(true);
   };
 
-  const handleSeatSelection = (seats, sec, row) => {
+  const handleSeatSelection = (seats) => {
+    // Assuming eventDetails are updated or passed as necessary
+    const { sec, row } = selectedEvent; // Assuming selectedEvent has sec and row
     setSelectedSeats(seats);
     setEventDetails({ sec, row });
     setBottomSheetOpen(false);
@@ -46,6 +45,10 @@ const MyTickets = () => {
     closeForm();
   };
 
+  if (!selectedEvent) {
+    return <div>No event selected.</div>;
+  }
+
   return (
     <motion.div 
       className="min-h-screen bg-gray-100"
@@ -59,7 +62,7 @@ const MyTickets = () => {
         <div className="text-lg">Help</div>
       </div>
       <div className="flex justify-center">
-        <HorizontalScroll tickets={selectedEvent} />
+        <HorizontalScroll tickets={selectedEvent} /> {/* Pass selectedEvent directly */}
       </div>
       <div className="flex justify-between mt-4">
         <button
@@ -78,8 +81,8 @@ const MyTickets = () => {
       <BottomSheet
         isOpen={isBottomSheetOpen}
         onClose={closeAllSheets}
-        seats={selectedEvent}
-        onTransfer={handleSeatSelection}
+        seats={selectedEvent.sit}
+        onTransfer={handleSeatSelection} // Pass the handleSeatSelection function
       />
 
       <TransferTicketBottomSheet

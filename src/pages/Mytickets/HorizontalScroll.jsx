@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TicketCard from './TicketCard';
 
-const HorizontalScroll = ({ tickets = {} }) => {
+const HorizontalScroll = ({ tickets }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef(null);
 
@@ -35,17 +35,11 @@ const HorizontalScroll = ({ tickets = {} }) => {
     }
   };
 
-  const splitTickets = [];
-  if (tickets.sit && Array.isArray(tickets.sit)) {
-    tickets.sit.forEach((seat) => {
-      splitTickets.push({
-        ...tickets,
-        seat,
-      });
-    });
-  } else {
-    console.error('Expected sit to be an array but received:', tickets.sit);
-  }
+  // Map the tickets.sit array to display individual tickets
+  const splitTickets = tickets.sit.map((seat, index) => ({
+    ...tickets,
+    seat, // Add the seat number to the ticket
+  }));
 
   return (
     <div className="relative w-full overflow-hidden">

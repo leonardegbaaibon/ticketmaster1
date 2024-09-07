@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import TabNavigator from "./TabNavigator";
 import EventCard from "./EventCard";
 import { AiOutlineClose } from "react-icons/ai";
 import SplashScreen from "./SplashScreen";
-// import SplashScreen from "./"; // Import SplashScreen component
 
-const MyEvents = () => {
+const MyEvents = ({ setSelectedEvent, setActiveComponent }) => {
   const [activeTab, setActiveTab] = useState("upcoming");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,11 +16,11 @@ const MyEvents = () => {
   return (
     <>
       <SplashScreen isLoading={isLoading} onLoadComplete={handleLoadComplete} />
-      <motion.div 
+      <motion.div
         className="flex justify-center"
-        initial={{ opacity: 0, y: 20 }} // Initial state for animation
-        animate={{ opacity: 1, y: 0 }} // End state for animation
-        transition={{ duration: 0.5 }} // Duration of the animation
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="min-h-screen bg-white w-screen md:w-2/5">
           <div className="flex justify-between items-center bg-black text-white py-2 px-6">
@@ -33,8 +32,7 @@ const MyEvents = () => {
           <div className="p-4">
             {activeTab === "upcoming" && (
               <div className="space-y-4">
-                <EventCard />
-                {/* Repeat EventCard for more events */}
+                <EventCard setSelectedEvent={setSelectedEvent} setActiveComponent={setActiveComponent} />
               </div>
             )}
             {activeTab === "past" && (
