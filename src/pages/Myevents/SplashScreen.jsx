@@ -4,7 +4,7 @@ import Vite from './vite.svg'
 const SplashScreen = ({ isLoading, onLoadComplete }) => {
   useEffect(() => {
     if (isLoading) {
-      const timer = setTimeout(() => onLoadComplete(), 7000); 
+      const timer = setTimeout(() => onLoadComplete(), 7000); // 3 seconds
       return () => clearTimeout(timer);
     }
   }, [isLoading, onLoadComplete]);
@@ -16,7 +16,7 @@ const SplashScreen = ({ isLoading, onLoadComplete }) => {
       }`}
       style={{ zIndex: 9999, transition: 'opacity 0.5s ease' }}
     >
-      <img src={Vite} alt="Ticket Icon" width={150} height={150} style={{marginBottom:10}}/>
+      <img src={Vite} alt="Ticket Icon" width={150} height={150} style={{marginBottom:250}}/>
     </div>
   );
 };
