@@ -39,7 +39,7 @@ const MyEvents = ({ setSelectedEvent, setActiveComponent }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="min-h-screen bg-[#005DDB] w-screen md:w-2/5">
+          <div className="min-h-screen bg-white w-screen md:w-2/5">
             <div className="flex justify-between items-center bg-black text-white py-2 px-6">
               <AiOutlineClose size={24} color="transparent" />
               <div className="text-lg">My Tickets</div>
