@@ -65,15 +65,15 @@ const BottomSheet = ({ isOpen, onClose, seats = [], onTransfer }) => {
                     onClick={() => handleSeatSelect(seatId)}
                     className={`cursor-pointer py-2 px-4 flex items-center justify-center space-x-2 ${
                       selectedSeats.includes(seatId)
-                        ? 'bg-blue-500 border-blue-600 text-white'
-                        : 'bg-blue-500 border-blue-500 text-white'
+                        ? 'bg-[#005DDB] border-blue-600 text-white'
+                        : 'bg-[#005DDB] border-blue-500 text-white'
                     }`}
                   >
                     <span>SEAT {seatId}</span>
                   </div>
                   <span
                     className={`custom-radio-button my-2 px-1 py-1 ${
-                      selectedSeats.includes(seatId) ? 'bg-blue-500' : ''
+                      selectedSeats.includes(seatId) ? 'bg-[#005DDB]' : ''
                     }`}
                   >
                     <b className="text-white" style={{ fontSize: '13px' }}>

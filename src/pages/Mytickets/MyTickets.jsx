@@ -66,7 +66,7 @@ const MyTickets = ({ selectedEvent }) => {
       </div>
       <div className="flex justify-between mt-4">
         <button
-          className="bg-blue-500 text-white my-8 ml-5 rounded-md py-3 px-12"
+          className="bg-[#005DDB] text-white my-8 ml-5 rounded-md py-3 px-12"
           onClick={openBottomSheet}
         >
           Transfer

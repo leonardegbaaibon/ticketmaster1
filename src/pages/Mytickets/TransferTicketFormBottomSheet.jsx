@@ -117,7 +117,7 @@ const TransferTicketFormBottomSheet = ({ isOpen, onClose, selectedSeats, eventDe
               {'> Back'}
             </button>
             <button
-              className="rounded-md py-2 px-4 bg-blue-500 text-white"
+              className="rounded-md py-2 px-4 bg-[#005DDB] text-white"
               onClick={onTransfer} // Handle ticket transfer logic here
             >
               {`TRANSFER ${selectedSeats.length} Tickets`}
