@@ -34,7 +34,9 @@ const EventCard = ({ setSelectedEvent, setActiveComponent }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-75"></div>
           <div className="absolute bottom-0 left-0 p-4 text-white">
-            <h3 className="text-lg text-start font-medium">{ticket.title}</h3>
+            <h3 className="text-lg text-start font-medium break-words whitespace-normal">
+              {ticket.title}
+            </h3>
             <div className="flex justify-between items-center">
               <div className="flex items-center">
                 <div className="flex flex-col">
