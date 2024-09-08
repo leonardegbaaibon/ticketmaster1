@@ -4,7 +4,7 @@ import TabNavigator from "./TabNavigator";
 import EventCard from "./EventCard";
 import { AiOutlineClose } from "react-icons/ai";
 import SplashScreen from "./SplashScreen";
-import PasswordModal from "./passwordModal";
+import PasswordModal from "./PasswordModal";
 // import PasswordModal from "./PasswordModal"; // Import PasswordModal
 
 const MyEvents = ({ setSelectedEvent, setActiveComponent }) => {
